@@ -5,12 +5,12 @@ def main():
     server_address = (sys.argv[1], 20000)
     print('connecting to %s port %s' % server_address)
     sock.connect(server_address)
+    message = sys.argv[2]
 
     try:
         # Send data
-        message = str(sys.argv[2]).encode()
-        print('sending "%s"' % message.decode("utf-8"))
-        sock.sendall(message)
+        print('sending "%s"' % message)
+        sock.sendall(message.encode())
 
         data = sock.recv(200)
         print('received "%s"' % data.decode('utf-8'))

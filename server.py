@@ -23,15 +23,14 @@ def main():
                     # Receive the data in small chunks and retransmit it in uppercase
             while True:
                 data = connection.recv(2000)
-                if(len(data) > 0):
-                    print('received "%s"' % data.decode('utf-8'))
-                    if data:
-                        print('sending data in uppercase back to the client')
-                        data = data.decode('utf-8').upper().encode()
-                        connection.sendall(data)
-                    else:
-                        print('no more data from', client_address)
-                        break
+                print('received "%s"' % data.decode('utf-8'))
+                if data:
+                    print('sending data in uppercase back to the client')
+                    data = data.decode('utf-8').upper().encode()
+                    connection.sendall(data)
+                else:
+                    print('no more data from', client_address)
+                    break
         except BlockingIOError:
             pass
 
