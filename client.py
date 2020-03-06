@@ -12,9 +12,6 @@ def main():
         print('sending "%s"' % message)
         sock.sendall(message.encode())
 
-        data = sock.recv(200)
-        print('received "%s"' % data.decode('utf-8'))
-
     finally:
         print('closing socket')
         sock.close()

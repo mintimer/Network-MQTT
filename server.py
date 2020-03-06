@@ -13,24 +13,17 @@ def main():
     sock.listen(1)
 
     sock.setblocking(0)
-
+    print('waiting for a connection')
     while True:
         try:
-            # Wait for a connection
-            # print('waiting for a connection')
             connection, client_address = sock.accept()
             print('connection from', client_address)
                     # Receive the data in small chunks and retransmit it in uppercase
-            while True:
-                data = connection.recv(2000)
-                print('received "%s"' % data.decode('utf-8'))
-                if data:
-                    print('sending data in uppercase back to the client')
-                    data = data.decode('utf-8').upper().encode()
-                    connection.sendall(data)
-                else:
-                    print('no more data from', client_address)
-                    break
+            data = connection.recv(2000)
+            data = data.decode("utf-8")
+            if data:
+                print('received "%s"' % data)
+            print('waiting for a connection')
         except BlockingIOError:
             pass
 
