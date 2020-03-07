@@ -12,4 +12,4 @@ ex : python subscriber.py 127.0.0.1 Room1
 
 3. Publisher
 * python subscriber.py [IP-ADDRESS] [Topic] [Message]
-ex : python publisher.py 127.0.0.1 Room1 HelloGuys
+ex : python publisher.py 127.0.0.1 Room1 Hello Guys I love your cats
