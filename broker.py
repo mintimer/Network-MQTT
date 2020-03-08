@@ -108,7 +108,7 @@ def main():
         print('starting up on %s port %s' % server_address)
         try: # check server has been running or not
             sock.bind(server_address)
-        except OSError:
+        except :
             print('this broker server can not running or has been running.')
             try:
                 sock.close()

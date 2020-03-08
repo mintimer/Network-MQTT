@@ -14,15 +14,16 @@ def main():
             except:
                 os._exit(0)
 
-        message = sys.argv[2]
-        print('Subscribing topic "%s"' % message)
-        message = 'SUB\t' + message # add Subscriber prefix
+        topic = sys.argv[2]
+        print('Subscribing topic "%s"' % topic)
+        message = 'SUB\t' + topic # add Subscriber prefix
         # try sending
         try:
             sock.send(message.encode())
         except :
             print('Can not send message to broker')
             try: # close program
+                sock.close()
                 sys.exit(0)
             except:
                 os._exit(0)

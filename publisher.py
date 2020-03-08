@@ -24,8 +24,9 @@ def main():
         except:
             print('Connection failed to {}'.format(server_address))
             try:
+                sock.close()
                 sys.exit(0)
-            except SystemExit:
+            except:
                 os._exit(0)
         topic = sys.argv[2]
         message = sys.argv[3]
